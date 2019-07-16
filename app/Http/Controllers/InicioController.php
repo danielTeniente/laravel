@@ -15,13 +15,22 @@ class InicioController extends Controller
 
    		foreach ($libros as $libro) { 
 
-       		echo $libro->NombreLibro.'<br>'; 
+       		echo $libro->NombreLibro.' '.$libro->Precio.'<br>'; 
+       		echo 'Compras<br>';
+       		$total=0;
+       		foreach ($ventas as $venta) { 
+
+       			if ($libro->id==$venta->Libro_id) {
+       				echo $venta->NombreCliente.' '.$venta->Cantidad.'<br>'; 
+       				$total+=$libro->Precio*$venta->Cantidad;
+
+       			}; 
+
+       		}
+       		echo 'Total: '.$total.'<br>';
+       		echo '<br>';
 
        	}
-	   	foreach ($ventas as $venta) { 
 
-       		echo $venta->NombreCliente.'<br>'; 
-
-       	}
 	} 
 }
