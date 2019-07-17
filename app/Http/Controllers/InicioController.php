@@ -9,7 +9,7 @@ class InicioController extends Controller
 {
     public function index() { 
 
- 
+      echo 'Daniel Diaz <br>';
    		$libros = Libros::all(); 
    		$ventas = Ventas::all(); 
 
